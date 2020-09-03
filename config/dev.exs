@@ -2,7 +2,7 @@ use Mix.Config
 
 # Configure your database
 config :ex_mon_api, ExMonApi.Repo,
-  username: "postgres",
+  username: "jhoni",
   password: "postgres",
   database: "ex_mon_api_dev",
   hostname: "localhost",

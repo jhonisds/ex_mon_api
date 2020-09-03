@@ -6,7 +6,7 @@ use Mix.Config
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
 config :ex_mon_api, ExMonApi.Repo,
-  username: "postgres",
+  username: "jhoni",
   password: "postgres",
   database: "ex_mon_api_test#{System.get_env("MIX_TEST_PARTITION")}",
   hostname: "localhost",
