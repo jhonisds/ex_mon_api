@@ -4,6 +4,8 @@ defmodule ExMonApiWeb.TrainerController do
   """
   use ExMonApiWeb, :controller
 
+  action_fallback ExMonApiWeb.FallbackController
+
   def create(conn, params) do
     params
     |> ExMonApi.create_trainer()
@@ -15,4 +17,6 @@ defmodule ExMonApiWeb.TrainerController do
     |> put_status(:created)
     |> render("create.json", trainer: trainer)
   end
+
+  defp handle_response({:error, _changeset} = error, _conn), do: error
 end
