@@ -24,6 +24,12 @@ defmodule ExMonApiWeb.TrainerController do
     |> handle_response(conn, "show.json", :ok)
   end
 
+  def index(conn, %{"id" => id}) do
+    id
+    |> ExMonApi.get_trainer()
+    |> handle_response(conn, "show.json", :ok)
+  end
+
   defp handle_response({:ok, trainer}, conn, view, status) do
     conn
     |> put_status(status)
