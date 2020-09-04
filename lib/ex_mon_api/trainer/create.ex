@@ -1,6 +1,7 @@
 defmodule ExMonApi.Trainer.Create do
   @moduledoc """
   Module create trainers
+  🚀 ➜ curl -d "name=jhoni&password=123456" http://localhost:4000/api/trainers
   """
 
   alias ExMonApi.{Repo, Trainer}
