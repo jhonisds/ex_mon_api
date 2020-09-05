@@ -18,6 +18,20 @@ defmodule ExMonApiWeb.TrainerView do
 
   def render("index.json", %{trainer: trainer}), do: Enum.map(trainer, &trainer_view/1)
 
+  def render("update.json", %{
+        trainer: %Trainer{id: id, name: name, inserted_at: inserted_at, updated_at: updated_at}
+      }) do
+    %{
+      message: "Trainer updated!",
+      trainer: %{
+        id: id,
+        name: name,
+        inserted_at: inserted_at,
+        updated_at: updated_at
+      }
+    }
+  end
+
   defp trainer_view(trainer) do
     %{
       id: trainer.id,

@@ -13,4 +13,5 @@ defmodule ExMonApi do
   defdelegate delete_trainer(params), to: Trainer.Delete, as: :call
   defdelegate get_trainer(params), to: Trainer.Get, as: :call
   defdelegate get_all_trainer(), to: Trainer.GetAll, as: :call
+  defdelegate update_trainer(params), to: Trainer.Update, as: :call
 end
