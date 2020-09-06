@@ -6,6 +6,8 @@ defmodule ExMonApi.Poke do
 
   @enforce_keys @keys
 
+  # encode struct to Json
+  @derive Jason.Encoder
   defstruct @keys
 
   def build(%{"id" => id, "name" => name, "weight" => weight, "types" => types}) do
