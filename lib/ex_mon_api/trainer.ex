@@ -5,6 +5,7 @@ defmodule ExMonApi.Trainer do
   use Ecto.Schema
 
   import Ecto.Changeset
+  alias ExMonApi.Trainer.Poke
 
   @primary_key {:id, Ecto.UUID, autogenerate: true}
   @required_params [:name, :password]
@@ -13,6 +14,7 @@ defmodule ExMonApi.Trainer do
     field :name, :string
     field :password_hash, :string
     field :password, :string, virtual: true
+    has_many(:poke, Poke)
 
     timestamps()
   end
