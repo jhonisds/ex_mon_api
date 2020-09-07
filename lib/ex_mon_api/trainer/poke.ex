@@ -9,7 +9,7 @@ defmodule ExMonApi.Trainer.Poke do
 
   @primary_key {:id, Ecto.UUID, autogenerate: true}
   @foreign_key_type Ecto.UUID
-  @required [:name, :nick_name, :weight, :types]
+  @required [:name, :nick_name, :weight, :types, :trainer_id]
 
   schema "pokes" do
     field :name, :string
