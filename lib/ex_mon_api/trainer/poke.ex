@@ -31,6 +31,7 @@ defmodule ExMonApi.Trainer.Poke do
     %__MODULE__{}
     |> cast(params, @required)
     |> validate_required(@required)
+    |> assoc_constraint(:trainer)
     |> validate_length(:nick_name, min: 2)
   end
 end
