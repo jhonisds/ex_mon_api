@@ -3,7 +3,7 @@ defmodule ExMonApi.Trainer.Pokemon.Get do
   Module get trainers pokes
   """
 
-  alias ExMonApi.{Repo, Trainer.Pokes}
+  alias ExMonApi.{Repo, Trainer.Poke}
   alias Ecto.UUID
 
   def call(id) do
@@ -14,7 +14,7 @@ defmodule ExMonApi.Trainer.Pokemon.Get do
   end
 
   defp get_pokemon(uuid) do
-    case Repo.get(Pokes, uuid) do
+    case Repo.get(Poke, uuid) do
       nil ->
         {:error, "Pokemon not found"}
 
