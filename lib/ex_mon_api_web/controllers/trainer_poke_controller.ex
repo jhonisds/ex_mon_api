@@ -24,6 +24,12 @@ defmodule ExMonApiWeb.TrainerPokeController do
     |> handle_response(conn, "show.json", :ok)
   end
 
+  def update(conn, params) do
+    params
+    |> ExMonApi.update_trainer_poke()
+    |> handle_response(conn, "update.json", :ok)
+  end
+
   defp handle_response({:ok, poke}, conn, view, status) do
     conn
     |> put_status(status)

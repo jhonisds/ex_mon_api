@@ -20,4 +20,5 @@ defmodule ExMonApi do
   defdelegate create_trainer_poke(params), to: TrainerPoke.Create, as: :call
   defdelegate delete_trainer_poke(params), to: TrainerPoke.Delete, as: :call
   defdelegate fetch_trainer_poke(params), to: TrainerPoke.Get, as: :call
+  defdelegate update_trainer_poke(params), to: TrainerPoke.Update, as: :call
 end

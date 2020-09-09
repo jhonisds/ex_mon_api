@@ -52,6 +52,31 @@ defmodule ExMonApiWeb.TrainerPokeView do
     }
   end
 
+  def render("update.json", %{
+        poke: %Poke{
+          id: id,
+          name: name,
+          inserted_at: inserted_at,
+          nick_name: nick_name,
+          types: types,
+          trainer_id: trainer_id,
+          weight: weight
+        }
+      }) do
+    %{
+      message: "Pokemon Updated",
+      pokemon: %{
+        id: id,
+        name: name,
+        inserted_at: inserted_at,
+        nick_name: nick_name,
+        types: types,
+        trainer_id: trainer_id,
+        weight: weight
+      }
+    }
+  end
+
   # def render("show.json", %{trainer: trainer}), do: trainer_view(trainer)
 
   # def render("index.json", %{trainer: trainer}), do: Enum.map(trainer, &trainer_view/1)

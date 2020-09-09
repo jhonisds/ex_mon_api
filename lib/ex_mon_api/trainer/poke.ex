@@ -34,4 +34,11 @@ defmodule ExMonApi.Trainer.Poke do
     |> assoc_constraint(:trainer)
     |> validate_length(:nick_name, min: 2)
   end
+
+  def update_changeset(poke, params) do
+    poke
+    |> cast(params, [:nick_name])
+    |> validate_required([:nick_name])
+    |> validate_length(:nick_name, min: 2)
+  end
 end
