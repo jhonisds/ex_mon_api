@@ -22,3 +22,4 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 - mix ecto.create # create database
 - mix ecto.gen.migration create_trainer_table # create migration
 - mix ecto.migrate
+- MIX_ENV=test mix ecto.drop # drop database env test
