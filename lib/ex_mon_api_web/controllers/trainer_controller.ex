@@ -4,12 +4,21 @@ defmodule ExMonApiWeb.TrainerController do
   """
   use ExMonApiWeb, :controller
 
+  alias ExMonApiWeb.Auth.Guardian
+
   action_fallback ExMonApiWeb.FallbackController
 
   def create(conn, params) do
-    params
-    |> ExMonApi.create_trainer()
-    |> handle_response(conn, "create.json", :created)
+    with {:ok, trainer} <- ExMonApi.create_trainer(params),
+         {:ok, token, _claims} <- Guardian.encode_and_sign(trainer) do
+      conn
+      |> put_status(:created)
+      |> render("create.json", %{trainer: trainer, token: token})
+    end
+
+    # params
+    # |> ExMonApi.create_trainer()
+    # |> handle_response(conn, "create.json", :created)
   end
 
   def delete(conn, %{"id" => id}) do
