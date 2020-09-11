@@ -12,6 +12,8 @@ defmodule ExMonApiWeb.Router do
     resources "/trainers_poke", TrainerPokeController,
       only: [:create, :show, :delete, :update, :index]
 
+    post "trainers/signin", TrainerController, :sign_in
+
     get "/poke/:name", PokemonController, :show
   end
 
