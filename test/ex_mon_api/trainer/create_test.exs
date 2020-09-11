@@ -22,18 +22,11 @@ defmodule ExMonApi.Trainer.CreateTest do
     end
 
     test "when there are invalid params, returns the error" do
-      params = %{password: "123456"}
-      response = Trainer.changeset(params)
+      params = %{name: "Jhoni"}
+      response = Create.call(params)
 
-      expected =
-        %Changeset{
-          changes: %{password: "123456"},
-          data: %Trainer{},
-          valid?: false
-        } = response
-
-      assert expected == response
-      assert errors_on(response) == %{name: ["can't be blank"]}
+      assert {:error, changeset} = response
+      assert %{password: ["can't be blank"]} == errors_on(changeset)
     end
   end
 end
