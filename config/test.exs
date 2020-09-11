@@ -20,3 +20,6 @@ config :ex_mon_api, ExMonApiWeb.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+# Config Tesla Mock
+config :tesla, adapter: Tesla.Mock
