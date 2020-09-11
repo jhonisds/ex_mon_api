@@ -35,3 +35,8 @@ config :ex_mon_api, ExMonApiWeb.Auth.Guardian,
   issuer: "ex_mon_api",
   # "Secret key. You can use `mix guardian.gen.secret` to get one"
   secret_key: "pFDj4/YvzHjbWM0EBKxIbBGHILy8ibb6WvLzB1LhuWTyvjih/U4/m2tdOUlA2Bla"
+
+# Configures Pipeline Auth
+config :ex_mon_api, ExMonApiWeb.Auth.Pipeline,
+  module: ExMonApiWeb.Auth.Guardian,
+  error_handler: ExMonApiWeb.Auth.ErrorHandler
