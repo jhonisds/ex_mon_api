@@ -33,7 +33,7 @@ defmodule ExMonApi.Trainer do
     |> cast(params, @required_params)
     |> validate_required(@required_params)
     |> validate_length(:password, min: 6)
-    |> IO.inspect()
+    # |> IO.inspect()
     |> put_pass_hash()
   end
 
