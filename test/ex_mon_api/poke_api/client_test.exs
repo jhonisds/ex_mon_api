@@ -12,9 +12,9 @@ defmodule ExMonApi.PokeApi.ClientTest do
     test "when there is a pokemon with the given name, returns the pokemon" do
       body = %{"name" => "pikachu", "weight" => 60, "types" => ["eletric"]}
 
-      method = %{method: :get, url: @base_url <> "pikachu"}
-
-      mock(fn method -> %Tesla.Env{status: 200, body: body} end)
+      mock(fn %{method: :get, url: @base_url <> "pikachu"} ->
+        %Tesla.Env{status: 200, body: body}
+      end)
 
       response = Client.get_pokemon("pikachu")
 
@@ -23,9 +23,7 @@ defmodule ExMonApi.PokeApi.ClientTest do
     end
 
     test "returns error pokemon not found" do
-      method = %{method: :get, url: @base_url <> "invalid"}
-
-      mock(fn method -> %Tesla.Env{status: 404} end)
+      mock(fn %{method: :get, url: @base_url <> "invalid"} -> %Tesla.Env{status: 404} end)
 
       response = Client.get_pokemon("invalid")
 
@@ -34,9 +32,7 @@ defmodule ExMonApi.PokeApi.ClientTest do
     end
 
     test "returns error timeout" do
-      method = %{method: :get, url: @base_url <> "pikachu"}
-
-      mock(fn method -> {:error, :timeout} end)
+      mock(fn %{method: :get, url: @base_url <> "pikachu"} -> {:error, :timeout} end)
 
       response = Client.get_pokemon("pikachu")
 
